@@ -45,7 +45,7 @@ public class VlcVideoActivity extends Activity implements SurfaceHolder.Callback
 		mSurfaceView = (SurfaceView) findViewById(R.id.video);
         mLoadingView = findViewById(R.id.video_loading);
 		try {
-			mMediaPlayer = VLCInstance.getLibVlcInstance();
+			mMediaPlayer = VLCInstance.getLibVlcInstance(getApplicationContext());
 		} catch (LibVlcException e) {
 			e.printStackTrace();
 		}
@@ -64,7 +64,8 @@ public class VlcVideoActivity extends Activity implements SurfaceHolder.Callback
 		//		mMediaPlayer.setMediaList();
 		//		mMediaPlayer.getMediaList().add(new Media(mMediaPlayer, "http://live.3gv.ifeng.com/zixun.m3u8"), false);
 		//		mMediaPlayer.playIndex(0);
-		mMediaPlayer.playMRL("http://live.3gv.ifeng.com/zixun.m3u8");
+		mMediaPlayer.playMRL("http://192.168.2.249:81/files/downloads/zhengquedeshuayafangfa.flv");
+//		mMediaPlayer.playMRL("http://live.3gv.ifeng.com/zixun.m3u8");
 	}
 
 	@Override

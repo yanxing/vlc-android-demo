@@ -24,8 +24,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.nmbb.vlc.VLCApplication;
-
 import org.videolan.libvlc.LibVLC;
 import org.videolan.libvlc.LibVlcException;
 
@@ -33,13 +31,12 @@ public class VLCInstance {
     public final static String TAG = "VLC/Util/VLCInstance";
 
     /** A set of utility functions for the VLC application */
-    public static LibVLC getLibVlcInstance() throws LibVlcException {
+    public static LibVLC getLibVlcInstance(Context context) throws LibVlcException {
         LibVLC instance = LibVLC.getExistingInstance();
         if (instance == null) {
             //Thread.setDefaultUncaughtExceptionHandler(new VLCCrashHandler());
 
             instance = LibVLC.getInstance();
-            final Context context = VLCApplication.getAppContext();
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
             VLCInstance.updateLibVlcSettings(pref);
             instance.init(context);

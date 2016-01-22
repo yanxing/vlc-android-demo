@@ -20,13 +20,13 @@
 
 package org.videolan.libvlc;
 
+import android.graphics.Bitmap;
+import android.util.Log;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Locale;
-
-import android.graphics.Bitmap;
-import android.util.Log;
 
 public class Media implements Comparable<Media> {
     public final static String TAG = "VLC/LibVLC/Media";
@@ -216,8 +216,8 @@ public class Media implements Comparable<Media> {
         if(string != null && string.length() > 0) return string;
 
         try {
-            Class<?> stringClass = Class.forName("org.videolan.vlc.R$string");
-            Class<?> utilClass = Class.forName("org.videolan.vlc.Util");
+            Class<?> stringClass = Class.forName("org.org.videolan.vlc.R$string");
+            Class<?> utilClass = Class.forName("org.org.videolan.vlc.Util");
 
             Integer value;
             switch(type) {
@@ -336,7 +336,7 @@ public class Media implements Comparable<Media> {
     /**
      * Sets the raw picture object.
      *
-     * In VLC for Android, use {@link org.videolan.vlc.MediaDatabase#setPicture(org.videolan.libvlc.Media, android.graphics.Bitmap)} instead.
+     * In VLC for Android, use {@link org.videolan.vlc.MediaDatabase#setPicture(org.videolan.libvlc.Media, Bitmap)} instead.
      *
      * @param p
      */
