@@ -4,6 +4,6 @@
     <string name="app_name">VLC-Demo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="video_layout_loading">Loading...</string>
+    <string name="video_layout_loading">加载中...</string>
 
 </resources>
