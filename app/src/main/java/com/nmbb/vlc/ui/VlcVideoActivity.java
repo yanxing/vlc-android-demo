@@ -5,7 +5,6 @@ import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -19,6 +18,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.nmbb.vlc.R;
+import com.nmbb.vlc.util.CountDownTimer;
 
 import org.videolan.libvlc.EventHandler;
 import org.videolan.libvlc.IVideoPlayer;
@@ -217,6 +217,9 @@ public class VlcVideoActivity extends Activity implements SurfaceHolder.Callback
 		new CountDownTimer(mMediaPlayer.getLength(),1000) {
 			@Override
 			public void onTick(long millisUntilFinished) {
+				if (isFinishing()){
+					this.cancel();
+				}
 				//已暂停
 				if (!mMediaPlayer.isPlaying()){
 					return;
